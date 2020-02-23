@@ -11,11 +11,12 @@
 
     tarefas.forEach(tarefa => {
         let li = document.createElement('li');
-        
-        li.innerHTML = `<img src="/images/todo.png" alt="${tarefa.nome}"> ${tarefa.nome}`;
+    
+        li.innerHTML = `<img src="/images/todo.png" alt="${tarefa.nome}"> ${tarefa.nome}
+        <a href="#" onclick="apagar('${tarefa.nome}')"><img src="/images/lixeira.png" alt="excluir tarefa" class="lixeira"></a>`;
         ul.appendChild(li);
     })
-}) ()
+})
 
 function showModal()
 {
@@ -35,4 +36,9 @@ function salvar(event)
         method: "POST",
         body: new FormData(event.target)
     })
+}
+
+function apagar(nome)
+{
+    console.log(nome);
 }
